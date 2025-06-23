@@ -1,8 +1,66 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shared Bookmarks</title>
+</head>
+
+<body>
+  <main>
+    <h1>My Favorite Bookmarks</h1>
+
+    <!-- DROPDOWN -->
+    <div class="user-dropdown">
+      <label for="user-select">Select User:</label>
+      <select id="user-select" name="user-select">
+        <!-- js dropdonw-->
+      </select>
+    </div>
+    <hr>
+
+    <!-- FORM -->
+    <section id="add-bookmark-section">
+      <h2>Add a New Bookmark</h2>
+
+      <form id="bookmark-form">
+
+        <!--FORM TITLE-->
+        <div>
+          <label for="title-input">Title:</label>
+          <input type="text" id="title-input" placeholder="Book title" required>
+        </div>
+
+        <!--FORM URL-->
+        <div>
+          <label for="url-input">URL:</label>
+          <input type="url" id="url-input" placeholder="e.g., https://amazon.org" required>
+        </div>
+
+        <!--FORM DESCRIPTION-->
+        <div>
+          <label for="description-input">Description:</label>
+          <textarea id="description-input" rows="3" placeholder="A short description of the book"></textarea>
+        </div>
+
+        <!--FORM SUBMIT BTN-->
+        <button type="submit" id="submit-btn">Add Bookmark</button>
+      </form>
+    </section>
+    <hr>
+
+    <!-- DISPLAY AREA -->
+    <section id="bookmarks-display-area">
+      <h2>My Favorites Bookmarks</h2>
+      <!--js display area-->
+      <ul id="bookmarks-list">
+        <!-- js li book list -->
+      </ul>
+    </section>
+
+  </main>
+  <script type="module" src="script.js"></script>
+</body>
+
 </html>
