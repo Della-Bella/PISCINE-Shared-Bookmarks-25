@@ -1,30 +1,46 @@
 import { bookmarksList } from "./dom.js";
 
 //Display List of Bookmarks
-
 export function renderBookmarks(bookmarks) {
-   bookmarksList.innerHTML = ""; //1- Clear user bookmarks
+  
+   bookmarksList.innerHTML = ""; // 1= Clear any old user bookmarks from the list
 
-   // First, check if the bookmarks variable is null or an empty array.
+   // 2=Check if there are any bookmarks to display.
    if (!bookmarks || bookmarks.length === 0) {
-      // If there are no bookmarks, display a message.
       bookmarksList.textContent = "This user has no bookmarks yet.";
-      return; // Exit the function
+      return; // Exit if no
    }
 
-   //2= Loop through each bookmark in the array.
+   // 3= Sort the bookmarks array from newest to oldest (Issue #6)
+   bookmarks.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+   // 4= Loop through each bookmark in the NOW-SORTED array.
    bookmarks.forEach((bookmark) => {
-      const listItem = document.createElement("li"); // 1- create a new li
+    
+      // A= Create the list item container
+      const listItem = document.createElement("li");
 
-      const title = document.createElement("h3"); // 4. Create title and description.
-      title.textContent = bookmark.title;
+      // B= Create the title as a clickable link (<a> tag) (Issue #7)
+      const titleLink = document.createElement("a");
+      titleLink.href = bookmark.url;
+      titleLink.textContent = bookmark.title;
+      titleLink.target = "_blank"; // Opens in new tab
 
-      const description = document.createElement("p"); // 2- create a new Description
+      // C= Create the description
+      const description = document.createElement("p");
       description.textContent = bookmark.description;
 
-      listItem.appendChild(title); // 3- add to Title $ Description the li
-      listItem.appendChild(description);
+      // D= Create the timestamp (Issue #7)
+      const timestamp = document.createElement("small");
+      const date = new Date(bookmark.createdAt); // This uses the 'bookmark' from the loop
+      timestamp.textContent = `Created on: ${date.toLocaleString()}`;
 
-      bookmarksList.appendChild(listItem); // 4. Add the completed list item to the main bookmarks list (<ul>).
+      // E. Append everything to the list item
+      listItem.appendChild(titleLink);
+      listItem.appendChild(description);
+      listItem.appendChild(timestamp);
+
+      // F. Append the finished list item to the main list (<ul>)
+      bookmarksList.appendChild(listItem);
    });
-}
+} 
