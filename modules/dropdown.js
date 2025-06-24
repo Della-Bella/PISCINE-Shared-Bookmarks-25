@@ -1,10 +1,11 @@
 // --- Function Populate Dropdonw ---
-import { userSelected } from './dom.js';        
-import { getUserIds } from '../storage.js';   
+import { userSelected } from "./dom.js";
+import { getUserIds } from "./storage.js";
 
 export function populateUserDropdown() {
    // 1. Get user IDs from storage
    const userIds = getUserIds();
+   console.log("1. Fetched User IDs:", userIds);
 
    // 2. Loop through each userId in the array
    userIds.forEach((userId) => {
@@ -21,5 +22,4 @@ export function populateUserDropdown() {
    });
 }
 
-// Call the function to run the code when the page loads
-populateUserDropdown();
+
