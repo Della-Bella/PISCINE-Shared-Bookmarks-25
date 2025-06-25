@@ -37,39 +37,46 @@ export function setupEventListeners() {
       const url = urlInput.value;
       const description = descriptionInput.value;
 
-      //2= CREATE THE BOOKMARK OBJECT 
+      //2= CREATE THE BOOKMARK OBJECT
       const newBookmark = {
          title: title,
          url: url,
          description: description,
-         createdAt: new Date().toISOString(), 
+         createdAt: new Date().toISOString(),
       };
 
-      //check 
+      //check
       console.log("Created new bookmark object:", newBookmark);
 
-
-      // Check 
+      // Check
       console.log("Form submitted for user:", currentUserId);
       console.log("Title entered:", title);
       console.log("URL entered:", url);
       console.log("Description entered:", description);
 
+      //  3= Get old Bookmarks and + The new
 
-   //  3= Get old Bookmarks and + The new
+      // 1= Get the user's existing bookmarks from storage
+      const existingBookmarks = getData(currentUserId) || []; // get data form user or give me an empty array [] prevents code from crashing
 
-  // 1= Get the user's existing bookmarks from storage
-  const existingBookmarks = getData(currentUserId) || [];// get data form user or give me an empty array [] prevents code from crashing
+      // 2= Add our new bookmark to the array with the old bookmarks
+      const updatedBookmarks = [...existingBookmarks, newBookmark];
 
+      // 3= SAVE and Update bookmarks 
+      setData(currentUserId, updatedBookmarks);
 
-  // 2= Add our new bookmark to the array with the old bookmarks
-  const updatedBookmarks = [...existingBookmarks, newBookmark];
+      
+      //4= After saving, RE-FETCH the data directly from storage to get all bookmarks// MORE ROBUST
+      const bookmarksFromStorage = getData(currentUserId);
 
-  // 4= SAVE and update bookmarks ---
-  setData(currentUserId, updatedBookmarks);
+      //5= RENDER ALL what just got from the storage
+      renderBookmarks(bookmarksFromStorage);
 
-  //check
-  console.log('Saved updated bookmarks for user:', currentUserId);
-  console.log('New list contains', updatedBookmarks.length, 'bookmarks.');
-});
+      // Clear the form fields 
+      bookmarkForm.reset();
+
+      //check
+      console.log("Saved updated bookmarks for user:", currentUserId);
+      console.log("New list contains", updatedBookmarks.length, "bookmarks.");
+   });
 } 
