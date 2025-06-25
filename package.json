@@ -1,20 +1,26 @@
 {
-  "name": "piscine-shared-bookmarks-25",
-  "version": "1.0.0",
-  "description": "As developers, we spend a lot of time reading articles on the web and we often want to record useful links to come back to them later. It is fun to share your bookmarks with others so that they can find interesting and useful links too.",
-  "main": "script.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Della-Bella/PISCINE-Shared-Bookmarks-25.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Della-Bella/PISCINE-Shared-Bookmarks-25/issues"
-  },
-  "homepage": "https://github.com/Della-Bella/PISCINE-Shared-Bookmarks-25#readme"
+   "name": "piscine-shared-bookmarks-25",
+   "version": "1.0.0",
+   "description": "As developers, we spend a lot of time reading articles on the web and we often want to record useful links to come back to them later. It is fun to share your bookmarks with others so that they can find interesting and useful links too.",
+   "main": "script.js",
+   "type": "module",
+   "scripts": {
+      "test": "jest"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Della-Bella/PISCINE-Shared-Bookmarks-25.git"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/Della-Bella/PISCINE-Shared-Bookmarks-25/issues"
+   },
+   "homepage": "https://github.com/Della-Bella/PISCINE-Shared-Bookmarks-25#readme",
+   "devDependencies": {
+      "@babel/core": "^7.27.4",
+      "@babel/preset-env": "^7.27.2",
+      "babel-jest": "^29.7.0"
+   }
 }
