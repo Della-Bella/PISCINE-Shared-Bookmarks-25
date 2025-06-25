@@ -65,7 +65,7 @@ export function setupEventListeners() {
   // 2= Add our new bookmark to the array with the old bookmarks
   const updatedBookmarks = [...existingBookmarks, newBookmark];
 
-  // 4: SAVE and update bookmarks ---
+  // 4= SAVE and update bookmarks ---
   setData(currentUserId, updatedBookmarks);
 
   //check
