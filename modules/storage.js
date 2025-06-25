@@ -8,7 +8,7 @@
  * @returns {string[]} List of user id strings
  */
 export function getUserIds() {
-  return ["Jack", "isabella", "David", "Gisele", "Toby the Dog"];
+  return ["Jack", "Isabella", "David", "Gisele", "Toby the Dog"];
 }
 
 /**
