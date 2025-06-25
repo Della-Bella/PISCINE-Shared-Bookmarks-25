@@ -79,7 +79,19 @@ button[type="submit"]:hover {
     background-color: #ffffff;
     border: 2px solid #000;
     padding: 1rem;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
+}
+
+#bookmarks-list .no-bookmarks-message {
+    background-color: transparent;
+    border: black;
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding: 0;
+    margin-bottom: 0;
+    font-style: italic;
+    color: #315196;
+    
 }
 
 #bookmarks-list li a {

@@ -7,7 +7,11 @@ export function renderBookmarks(bookmarks) {
 
    // 2=Check if there are any bookmarks to display.
    if (!bookmarks || bookmarks.length === 0) {
-      bookmarksList.textContent = "This user has no bookmarks yet.";
+      const messageItem = document.createElement("li"); // Create a single list item to hold the message
+      messageItem.className = "no-bookmarks-message";
+      messageItem.textContent = "This user has no bookmarks yet.";
+      // Append this single <li> to the <ul>.
+      bookmarksList.appendChild(messageItem);
       return; // Exit if no
    }
 
