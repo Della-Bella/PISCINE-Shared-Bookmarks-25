@@ -54,5 +54,22 @@ export function setupEventListeners() {
       console.log("Title entered:", title);
       console.log("URL entered:", url);
       console.log("Description entered:", description);
-   });
-}
+
+
+   //  3= Get old Bookmarks and + The new
+
+  // 1= Get the user's existing bookmarks from storage
+  const existingBookmarks = getData(currentUserId) || [];// get data form user or give me an empty array [] prevents code from crashing
+
+
+  // 2= Add our new bookmark to the array with the old bookmarks
+  const updatedBookmarks = [...existingBookmarks, newBookmark];
+
+  // 4: SAVE and update bookmarks ---
+  setData(currentUserId, updatedBookmarks);
+
+  //check
+  console.log('Saved updated bookmarks for user:', currentUserId);
+  console.log('New list contains', updatedBookmarks.length, 'bookmarks.');
+});
+} 
