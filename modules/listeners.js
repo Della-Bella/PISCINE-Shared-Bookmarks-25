@@ -1,4 +1,4 @@
-//    Issue #3 Handle User Selection Change/ Event Listeners/  function call.
+//Issue #3 Handle User Selection Change/ Event Listeners/  function call.
 
 import {
    userSelected,
@@ -17,19 +17,16 @@ export function setupEventListeners() {
       const selectedUserId = event.target.value; // gte the user iD
 
       console.log("--- User Changed ---");
-      console.log("5. New user selected:", selectedUserId);
+      console.log("5=New user selected:", selectedUserId);
 
       const bookmarks = getData(selectedUserId); // get the usser data
-      console.log("6. Fetched new bookmarks:", bookmarks);
+      console.log("6=Fetched new bookmarks:", bookmarks);
       renderBookmarks(bookmarks); // render data brenderBookmamrk Function
    });
 
    
-   // Start submit ____LISTENER 2: For the Form Submission
-   // Start submit
-   //1= First thing is to get all the information we need for submit the firm
-   //Inside the submit event listener, we will read the .value property of each
-   //  of these elements and store them in constants.
+   // LISTENER 2: For the Form Submission
+   //read the .values= store them in constants.
    bookmarkForm.addEventListener("submit", (event) => {
       event.preventDefault();
       const currentUserId = userSelected.value;
@@ -37,7 +34,7 @@ export function setupEventListeners() {
       const url = urlInput.value;
       const description = descriptionInput.value;
 
-      //2= CREATE THE BOOKMARK OBJECT
+      //CREATE THE BOOKMARK OBJECT
       const newBookmark = {
          title: title,
          url: url,
@@ -54,22 +51,13 @@ export function setupEventListeners() {
       console.log("URL entered:", url);
       console.log("Description entered:", description);
 
-      //  3= Get old Bookmarks and + The new
-
-      // 1= Get the user's existing bookmarks from storage
-      const existingBookmarks = getData(currentUserId) || []; // get data form user or give me an empty array [] prevents code from crashing
-
-      // 2= Add our new bookmark to the array with the old bookmarks
+      //  3= Get old Bookmarks and + The new. Get existent, add news, set data, re-fetch
+      const existingBookmarks = getData(currentUserId) || [];
       const updatedBookmarks = [...existingBookmarks, newBookmark];
-
-      // 3= SAVE and Update bookmarks 
       setData(currentUserId, updatedBookmarks);
-
-      
-      //4= After saving, RE-FETCH the data directly from storage to get all bookmarks// MORE ROBUST
       const bookmarksFromStorage = getData(currentUserId);
 
-      //5= RENDER ALL what just got from the storage
+      //5= RENDER ALL 
       renderBookmarks(bookmarksFromStorage);
 
       // Clear the form fields 
