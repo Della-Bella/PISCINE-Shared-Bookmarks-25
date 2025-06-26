@@ -90,14 +90,14 @@ button[type="submit"]:hover {
     padding: 0;
     margin-bottom: 0;
     font-style: italic;
-    color: #315196;
+    color: #4e4e4e;
     
 }
 
 #bookmarks-list li a {
     font-weight: bold;
     font-size: 1.25rem;
-    color: #0000ff; 
+    color: #28288f; 
     text-decoration: underline;
 }
 
